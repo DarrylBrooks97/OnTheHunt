@@ -1,34 +1,22 @@
-# Welcome to Remix!
+# On the Hunt 📰
 
-- [Remix Docs](https://remix.run/docs)
+Building this because I'm too lazy to keep up with the latests products that are promoted on [Product Hunt](https://www.producthunt.com/)
 
-## Deployment
+## In my ideal morning
+- Wake up
+- Visit [OnTheHunt](https://oth-prod.vercel.app) while half sleep
+- Shown ~5-10 top products that were promoted the day before
+  - Topic
+  - Displays Logo or App image
+  - Has link to product and is shareable
+  - Shows the amount of upvotes/likes it has
+  - Badge if its free or not
+- Close the app and continue with my day
+## Landing page Mock
+![iPhone 13 Pro Max - 1](https://user-images.githubusercontent.com/24500251/155411325-d01d8bc8-5653-4347-8072-fb92fe813d59.png)
 
-After having run the `create-remix` command and selected "Vercel" as a deployment target, you only need to [import your Git repository](https://vercel.com/new) into Vercel, and it will be deployed.
+## Home page Mock
+![iPhone 13 Pro Max - 2](https://user-images.githubusercontent.com/24500251/155440230-213bee77-1b9d-4aa3-8acc-49381f9822ee.png)
 
-If you'd like to avoid using a Git repository, you can also deploy the directory by running [Vercel CLI](https://vercel.com/cli):
-
-```sh
-npm i -g vercel
-vercel
-```
-
-It is generally recommended to use a Git repository, because future commits will then automatically be deployed by Vercel, through its [Git Integration](https://vercel.com/docs/concepts/git).
-
-## Development
-
-To run your Remix app locally, make sure your project's local dependencies are installed:
-
-```sh
-npm install
-```
-
-Afterwards, start the Remix development server like so:
-
-```sh
-npm run dev
-```
-
-Open up [http://localhost:3000](http://localhost:3000) and you should be ready to go!
-
-If you're used to using the `vercel dev` command provided by [Vercel CLI](https://vercel.com/cli) instead, you can also use that, but it's not needed.
+## Contribution
+Haven't thought about it but if you wanna help just fork and create a PR 🙂
