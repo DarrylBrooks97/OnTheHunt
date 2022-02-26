@@ -1,6 +1,7 @@
+import { Link } from 'remix';
 import type { MetaFunction } from 'remix';
-import { Button, Center, Image, Stack, Text } from '@chakra-ui/react';
 import { ArrowRightIcon } from '@radix-ui/react-icons';
+import { Box, Button, Center, Image, Stack, Text } from '@chakra-ui/react';
 
 export const meta: MetaFunction = () => {
 	return {
@@ -12,15 +13,8 @@ export const meta: MetaFunction = () => {
 export default function Index(): JSX.Element {
 	return (
 		<>
-			<Image position="absolute" top="25%" src="/red-circle.png" />
-			<Image
-				position="absolute"
-				top="45%"
-				right="0%"
-				src="/blue-circle.png"
-			/>
-			<Image position="absolute" top="55%" src="/yellow-circle.png" />
 			<Stack
+				pos="relative"
 				padding="6"
 				w="full"
 				alignContent="center"
@@ -29,25 +23,72 @@ export default function Index(): JSX.Element {
 			>
 				<Center>
 					<Center
+						bgColor="rgba(255,255,255,0.55)"
+						backdropFilter={`blur(10px)`}
+						flexDirection="column"
 						w={330}
 						h={298}
 						borderRadius={20}
-						bgColor="rgba(255,255,255,0.55)"
-						backdropFilter={`blur(10px)`}
 					>
-						<Text fontSize="3rem" fontWeight="bold">
-							On The Hunt
-						</Text>
+						<Box w="230px">
+							<Stack spacing={-5} w="full" shouldWrapChildren>
+								<Text fontSize="48px" fontWeight="bold">
+									On
+								</Text>
+								<Text
+									fontSize="3rem"
+									ml="25%"
+									fontWeight="bold"
+								>
+									The
+								</Text>
+								<Text
+									fontSize="3rem"
+									ml="50%"
+									fontWeight="bold"
+								>
+									Hunt
+								</Text>
+							</Stack>
+							<Text fontSize="20px" color="#636363">
+								View the latest best products
+							</Text>
+						</Box>
 					</Center>
+					<Image
+						position="absolute"
+						top="10%"
+						left="-5%"
+						zIndex={-1}
+						src="/red-circle.png"
+					/>
+					<Image
+						position="absolute"
+						top="35%"
+						right="0%"
+						zIndex={-1}
+						src="/blue-circle.png"
+					/>
+					<Image
+						position="absolute"
+						top="40%"
+						left="0%"
+						zIndex={-1}
+						src="/yellow-circle.png"
+					/>
 				</Center>
 				<Center>
 					<Button
 						bgColor="black"
 						color="white"
-						width={150}
+						width="153px"
+						height="60px"
+						borderRadius="15px"
 						rightIcon={<ArrowRightIcon />}
 					>
-						View
+						<Text fontSize="22px" fontFamily="Roboto">
+							<Link to="/products">View</Link>
+						</Text>
 					</Button>
 				</Center>
 			</Stack>
