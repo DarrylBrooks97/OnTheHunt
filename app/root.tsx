@@ -1,6 +1,5 @@
 import '@fontsource/oswald/index.css';
 import '@fontsource/alegreya-sc/index.css';
-import '@fontsource/roboto/index.css';
 import Layout from '~/components/Layout';
 import ServerStyleContext from '~/context.server';
 import ClientStyleContext from './context.client';
