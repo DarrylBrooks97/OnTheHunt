@@ -1,7 +1,9 @@
-export type Note = {
-	userId: number;
-	id: number;
-	title: string;
-	body: string;
-	user?: any;
-};
+export interface Product {
+	id: string;
+	name: string;
+	url: string;
+	imageUrl: string;
+	topic: string;
+	tagline: string;
+	upvotes: number;
+}

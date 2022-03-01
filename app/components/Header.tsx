@@ -1,4 +1,4 @@
-import { Link, NavLink } from 'remix';
+import { Link } from '@remix-run/react';
 import { Box, HStack, Heading, Image } from '@chakra-ui/react';
 
 export default function Header() {
@@ -8,6 +8,8 @@ export default function Header() {
 			w="full"
 			alignItems="center"
 			justifyContent="space-between"
+			bgColor="rgba(255,255,255,0.20)"
+			backdropFilter={`blur(10px)`}
 			p={4}
 		>
 			<Link to="/">
@@ -16,9 +18,7 @@ export default function Header() {
 				</Heading>
 			</Link>
 			<Box>
-				<NavLink to="/menu">
-					<Image src="/menu.svg" alt="Menu" w="full" h="full" />
-				</NavLink>
+				<Image src="/menu.svg" alt="Menu" w="full" h="full" />
 			</Box>
 		</HStack>
 	);

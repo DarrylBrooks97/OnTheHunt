@@ -1,7 +1,24 @@
-import { Avatar, Box, Button, HStack, Stack, Text } from '@chakra-ui/react';
+import { Product } from '~/types';
 import { ArrowTopRightIcon, VercelLogoIcon } from '@radix-ui/react-icons';
+import {
+	Box,
+	Button,
+	HStack,
+	Image,
+	Stack,
+	Text,
+	Link,
+} from '@chakra-ui/react';
 
-export default function ProductCard(): JSX.Element {
+export interface ProductCardProps {
+	product: Product;
+}
+
+export default function ProductCard({
+	product,
+}: ProductCardProps): JSX.Element {
+	const { name, url, imageUrl, tagline, topic, upvotes }: Product = product;
+
 	return (
 		<Stack
 			pos="relative"
@@ -21,23 +38,24 @@ export default function ProductCard(): JSX.Element {
 					shouldWrapChildren
 				>
 					<VercelLogoIcon />
-					<Text fontWeight="semibold">1.7K</Text>
+					<Text fontWeight="semibold">{upvotes}</Text>
 				</Stack>
 				<Stack alignSelf="start" alignItems="center">
-					<Avatar
-						src="https://ph-files.imgix.net/fe5c5a34-f8f2-4f54-950d-7c0156d225b9.png?auto=format&auto=compress&codec=mozjpeg&cs=strip&w=100&h=100&fit=crop&bg=0fff&dpr=1"
+					<Image
+						src={`${imageUrl}`}
 						boxSize="60px"
+						borderRadius="50%"
 						boxShadow={`0px 4px 15px 0px rgba(0,0,0,0.25)`}
 					/>
-					<Text>Notion</Text>
+					<Text>{name}</Text>
 				</Stack>
 				<Box bg="#F4A261" borderRadius={4} alignSelf="start">
-					<Text color="white">Productivity</Text>
+					<Text color="white">
+						{topic.charAt(0).toUpperCase() + topic.slice(1)}
+					</Text>
 				</Box>
 			</HStack>
-			<Text noOfLines={2}>
-				The all-in-one workspace - notes, tasks, wikis & databases.
-			</Text>
+			<Text noOfLines={2}>{tagline}</Text>
 			<HStack justify="center">
 				<Button
 					bgColor="black"
@@ -55,7 +73,9 @@ export default function ProductCard(): JSX.Element {
 					borderRadius="5"
 					rightIcon={<ArrowTopRightIcon />}
 				>
-					<Text color="white">Check out</Text>
+					<Link as="a" href={url} target="_blank">
+						<Text color="white">Check out</Text>
+					</Link>
 				</Button>
 			</HStack>
 		</Stack>

@@ -1,8 +1,11 @@
 /**
- * @type {import('@remix-run/dev').AppConfig}
+ * @type {import('@remix-run/dev/config').AppConfig}
  */
- module.exports = {
-  serverBuildTarget: "vercel",
-  server: process.env.NODE_ENV === "development" ? undefined : "./server.js",
-  ignoredRouteFiles: [".*"]
+module.exports = {
+	appDirectory: 'app',
+	browserBuildDirectory: 'public/build',
+	publicPath: '/build/',
+	serverBuildTarget: 'vercel',
+	serverBuildDirectory: 'build',
+	devServerPort: 8002,
 };

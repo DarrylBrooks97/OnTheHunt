@@ -1,5 +1,5 @@
-import { Link } from 'remix';
-import type { MetaFunction } from 'remix';
+import { Link } from '@remix-run/react';
+import type { MetaFunction } from '@remix-run/react/routeModules';
 import { ArrowRightIcon } from '@radix-ui/react-icons';
 import { Box, Button, Center, Image, Stack, Text } from '@chakra-ui/react';
 
