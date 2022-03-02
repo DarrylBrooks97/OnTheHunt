@@ -15,7 +15,7 @@ import {
 	Scripts,
 	ScrollRestoration,
 	useCatch,
-} from 'remix';
+} from '@remix-run/react';
 
 export default function App() {
 	return (

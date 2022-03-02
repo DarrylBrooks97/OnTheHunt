@@ -2,7 +2,7 @@ export interface Product {
 	id: string;
 	name: string;
 	url: string;
-	imageUrl: string;
+	image_url: string;
 	topic: string;
 	tagline: string;
 	upvotes: number;

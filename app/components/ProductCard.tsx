@@ -1,13 +1,17 @@
 import { Product } from '~/types';
-import { ArrowTopRightIcon, VercelLogoIcon } from '@radix-ui/react-icons';
 import {
-	Box,
+	ArrowTopRightIcon,
+	Share2Icon,
+	VercelLogoIcon,
+} from '@radix-ui/react-icons';
+import {
 	Button,
 	HStack,
 	Image,
 	Stack,
 	Text,
 	Link,
+	Center,
 } from '@chakra-ui/react';
 
 export interface ProductCardProps {
@@ -17,59 +21,70 @@ export interface ProductCardProps {
 export default function ProductCard({
 	product,
 }: ProductCardProps): JSX.Element {
-	const { name, url, imageUrl, tagline, topic, upvotes }: Product = product;
+	const { name, url, image_url, tagline, topic, upvotes }: any = product;
 
 	return (
 		<Stack
-			pos="relative"
-			border="2px solid black"
-			w="315px"
-			h="auto"
 			p="4"
+			h="auto"
+			w="315px"
+			pos="relative"
 			borderRadius="20px"
+			border="2px solid black"
 			bgColor="rgba(255,255,255,0.55)"
 		>
-			<HStack w="full" justify="space-between" align="center">
-				<Stack
-					h="auto"
-					alignSelf="start"
-					alignItems="center"
-					spacing={0}
-					shouldWrapChildren
-				>
-					<VercelLogoIcon />
-					<Text fontWeight="semibold">{upvotes}</Text>
-				</Stack>
+			<Stack
+				h="auto"
+				spacing={0}
+				pos="absolute"
+				alignSelf="start"
+				alignItems="center"
+			>
+				<VercelLogoIcon />
+				<Text fontWeight="semibold">{upvotes}</Text>
+			</Stack>
+			<HStack w="full" justify="center">
 				<Stack alignSelf="start" alignItems="center">
 					<Image
-						src={`${imageUrl}`}
+						src={`${image_url}`}
 						boxSize="60px"
 						borderRadius="50%"
+						objectFit="fill"
 						boxShadow={`0px 4px 15px 0px rgba(0,0,0,0.25)`}
 					/>
 					<Text>{name}</Text>
 				</Stack>
-				<Box bg="#F4A261" borderRadius={4} alignSelf="start">
-					<Text color="white">
+				<Center
+					p="0.5"
+					top="5"
+					right="5"
+					bg="#F4A261"
+					w="54px"
+					h="18px"
+					pos="absolute"
+					alignSelf="start"
+					borderRadius={4}
+				>
+					<Text color="white" isTruncated fontSize="sm">
 						{topic.charAt(0).toUpperCase() + topic.slice(1)}
 					</Text>
-				</Box>
+				</Center>
 			</HStack>
 			<Text noOfLines={2}>{tagline}</Text>
 			<HStack justify="center">
 				<Button
-					bgColor="black"
 					w="auto"
 					h="36px"
+					bgColor="black"
 					borderRadius="5"
 					rightIcon={<VercelLogoIcon />}
 				>
 					<Text color="white">Upvote</Text>
 				</Button>
 				<Button
-					bgColor="black"
 					w="auto"
 					h="36px"
+					bgColor="black"
 					borderRadius="5"
 					rightIcon={<ArrowTopRightIcon />}
 				>
@@ -77,6 +92,7 @@ export default function ProductCard({
 						<Text color="white">Check out</Text>
 					</Link>
 				</Button>
+				<Share2Icon onClick={() => navigator.share(url)} />
 			</HStack>
 		</Stack>
 	);
