@@ -54,7 +54,7 @@ export default function Products(): JSX.Element {
 				justify="center"
 				alignItems="center"
 				mt={9}
-				spacing={3}
+				spacing={5}
 			>
 				{products.map((product) => (
 					<ProductCard key={product.id} product={product} />

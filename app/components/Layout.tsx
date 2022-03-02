@@ -1,5 +1,5 @@
-import { Stack, Flex } from '@chakra-ui/react';
 import Header from './Header';
+import { Stack, Flex } from '@chakra-ui/react';
 
 export default function Layout({ children }: { children: React.ReactNode }) {
 	return (

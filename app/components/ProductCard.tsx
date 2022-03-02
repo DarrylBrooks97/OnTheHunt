@@ -12,6 +12,7 @@ import {
 	Text,
 	Link,
 	Center,
+	Box,
 } from '@chakra-ui/react';
 
 export interface ProductCardProps {
@@ -70,30 +71,36 @@ export default function ProductCard({
 					</Text>
 				</Center>
 			</HStack>
-			<Text noOfLines={2}>{tagline}</Text>
-			<HStack justify="center">
-				<Button
-					w="auto"
-					h="36px"
-					bgColor="black"
-					borderRadius="5"
-					rightIcon={<VercelLogoIcon />}
-				>
-					<Text color="white">Upvote</Text>
-				</Button>
-				<Button
-					w="auto"
-					h="36px"
-					bgColor="black"
-					borderRadius="5"
-					rightIcon={<ArrowTopRightIcon />}
-				>
-					<Link as="a" href={url} target="_blank">
-						<Text color="white">Check out</Text>
-					</Link>
-				</Button>
-				<Share2Icon onClick={() => navigator.share(url)} />
-			</HStack>
+			<Box w="full" p="2">
+				<Text color="black">{tagline}</Text>
+				<HStack justify="center">
+					<Button
+						w="auto"
+						h="36px"
+						bgColor="black"
+						borderRadius="5"
+						rightIcon={<VercelLogoIcon />}
+					>
+						<Text color="white">Upvote</Text>
+					</Button>
+					<Button
+						w="auto"
+						h="36px"
+						bgColor="black"
+						borderRadius="5"
+						rightIcon={<ArrowTopRightIcon />}
+					>
+						<Link as="a" href={url} target="_blank">
+							<Text color="white">Check out</Text>
+						</Link>
+					</Button>
+					<Share2Icon
+						width={20}
+						height={20}
+						onClick={() => navigator.share(url)}
+					/>
+				</HStack>
+			</Box>
 		</Stack>
 	);
 }
