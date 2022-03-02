@@ -97,7 +97,9 @@ export default function ProductCard({
 					<Share2Icon
 						width={20}
 						height={20}
-						onClick={() => navigator.share(url)}
+						onClick={() =>
+							navigator.share({ url: url, title: name })
+						}
 					/>
 				</HStack>
 			</Box>

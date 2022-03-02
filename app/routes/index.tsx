@@ -55,27 +55,6 @@ export default function Index(): JSX.Element {
 							</Text>
 						</Box>
 					</Center>
-					<Image
-						position="absolute"
-						top="10%"
-						left="-5%"
-						zIndex={-1}
-						src="/red-circle.png"
-					/>
-					<Image
-						position="absolute"
-						top="35%"
-						right="0%"
-						zIndex={-1}
-						src="/blue-circle.png"
-					/>
-					<Image
-						position="absolute"
-						top="40%"
-						left="0%"
-						zIndex={-1}
-						src="/yellow-circle.png"
-					/>
 				</Center>
 				<Center>
 					<Button

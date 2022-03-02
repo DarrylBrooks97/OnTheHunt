@@ -1,8 +1,11 @@
 import ProductCard from '~/components/ProductCard';
 import { supabase } from '../server/supabase.server';
 import type { Product } from '../types';
-import { Box, Image, Stack } from '@chakra-ui/react';
+import { motion } from 'framer-motion';
+import { Box, BoxProps, Image, ImageProps, Stack } from '@chakra-ui/react';
 import { LoaderFunction, useLoaderData, redirect } from 'remix';
+
+const MotionBox = motion<BoxProps>(Box);
 
 export const loader: LoaderFunction = async (): Promise<Product[]> => {
 	const { data: products, error } = await supabase
@@ -27,27 +30,6 @@ export default function Products(): JSX.Element {
 
 	return (
 		<Box pos="relative" w="full" h="full">
-			<Image
-				position="absolute"
-				top="10%"
-				left="-5%"
-				zIndex={-1}
-				src="/red-circle.png"
-			/>
-			<Image
-				position="absolute"
-				top="35%"
-				right="0%"
-				zIndex={-1}
-				src="/blue-circle.png"
-			/>
-			<Image
-				position="absolute"
-				top="40%"
-				left="0%"
-				zIndex={-1}
-				src="/yellow-circle.png"
-			/>
 			<Stack
 				w="full"
 				h="full"
@@ -56,8 +38,29 @@ export default function Products(): JSX.Element {
 				mt={9}
 				spacing={5}
 			>
-				{products.map((product) => (
-					<ProductCard key={product.id} product={product} />
+				{products.map((product, index) => (
+					<MotionBox
+						initial="hidden"
+						animate="visible"
+						key={index}
+						custom={index}
+						variants={{
+							hidden: {
+								opacity: 0,
+								x: index % 2 === 0 ? -100 : 100,
+							},
+							visible: (index) => ({
+								opacity: 1,
+								x: 0,
+								transition: {
+									delay: index * 0.35,
+									duration: 0.9,
+								},
+							}),
+						}}
+					>
+						<ProductCard key={product.id} product={product} />
+					</MotionBox>
 				))}
 			</Stack>
 		</Box>
