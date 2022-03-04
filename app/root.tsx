@@ -2,8 +2,8 @@ import '@fontsource/oswald/index.css';
 import '@fontsource/alegreya-sc/index.css';
 import Layout from '~/components/Layout';
 import ServerStyleContext from '~/context.server';
-import ClientStyleContext from './context.client';
-import { theme } from '~/theme';
+import ClientStyleContext from '~/context.client';
+import { theme } from './theme';
 import { withEmotionCache } from '@emotion/react';
 import { ReactNode, useContext, useEffect } from 'react';
 import { Center, Text, ChakraProvider } from '@chakra-ui/react';
@@ -15,7 +15,7 @@ import {
 	Scripts,
 	ScrollRestoration,
 	useCatch,
-} from '@remix-run/react';
+} from 'remix';
 
 export default function App() {
 	return (

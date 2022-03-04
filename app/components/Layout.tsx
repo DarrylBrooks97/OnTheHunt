@@ -10,7 +10,6 @@ export default function Layout({ children }: { children: React.ReactNode }) {
 			<Stack
 				spacing={0}
 				pos="relative"
-				bg="background.main"
 				w="100vw"
 				h="100vh"
 				overflowX="hidden"

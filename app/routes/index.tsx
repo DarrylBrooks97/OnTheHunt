@@ -1,7 +1,7 @@
 import { Link } from 'remix';
 import type { MetaFunction } from '@remix-run/react/routeModules';
 import { ArrowRightIcon } from '@radix-ui/react-icons';
-import { Box, Button, Center, Image, Stack, Text } from '@chakra-ui/react';
+import { Box, Button, Center, Stack, Text } from '@chakra-ui/react';
 
 export const meta: MetaFunction = () => {
 	return {
@@ -15,7 +15,6 @@ export default function Index(): JSX.Element {
 		<>
 			<Stack
 				pos="relative"
-				padding="6"
 				w="full"
 				alignContent="center"
 				justify="center"
@@ -32,7 +31,7 @@ export default function Index(): JSX.Element {
 					>
 						<Box w="230px">
 							<Stack spacing={-5} w="full" shouldWrapChildren>
-								<Text fontSize="48px" fontWeight="bold">
+								<Text fontSize="3rem" fontWeight="bold">
 									On
 								</Text>
 								<Text
@@ -50,10 +49,10 @@ export default function Index(): JSX.Element {
 									Hunt
 								</Text>
 							</Stack>
-							<Text fontSize="20px" color="#636363">
-								View the latest best products
-							</Text>
 						</Box>
+						<Text fontSize="20px" color="#636363">
+							View the latest best afffsdfs
+						</Text>
 					</Center>
 				</Center>
 				<Center>
@@ -65,9 +64,11 @@ export default function Index(): JSX.Element {
 						borderRadius="15px"
 						rightIcon={<ArrowRightIcon />}
 					>
-						<Text fontSize="22px" fontFamily="Roboto">
-							<Link to="/products">View</Link>
-						</Text>
+						<Link to="/products">
+							<Text fontSize="22px" fontFamily="Roboto">
+								View
+							</Text>
+						</Link>
 					</Button>
 				</Center>
 			</Stack>
