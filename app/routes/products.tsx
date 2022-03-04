@@ -2,8 +2,8 @@ import ProductCard from '~/components/ProductCard';
 import { supabase } from '../server/supabase.server';
 import type { Product } from '../types';
 import { motion } from 'framer-motion';
-import { Box, BoxProps, Image, ImageProps, Stack } from '@chakra-ui/react';
-import { LoaderFunction, useLoaderData, redirect } from 'remix';
+import { Box, BoxProps, Stack } from '@chakra-ui/react';
+import { LoaderFunction, useLoaderData } from 'remix';
 
 const MotionBox = motion<BoxProps>(Box);
 
@@ -13,7 +13,7 @@ export const loader: LoaderFunction = async (): Promise<Product[]> => {
 		.select('*');
 
 	if (error || !products) {
-		throw redirect('/500');
+		throw new Response("Couldn't fetch products", { status: 500 });
 	}
 
 	return products.map((product: Product) => {

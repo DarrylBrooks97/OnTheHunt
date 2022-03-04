@@ -1,28 +1,23 @@
 import Header from './Header';
-import {
-	Stack,
-	Flex,
-	ImageProps,
-	Image,
-	BoxProps,
-	Box,
-} from '@chakra-ui/react';
 import { motion } from 'framer-motion';
+import { Stack, Flex, ImageProps, Image, Box } from '@chakra-ui/react';
 
 const MotionImage = motion<ImageProps>(Image);
-const MotionBox = motion<BoxProps>(Box);
 
 export default function Layout({ children }: { children: React.ReactNode }) {
 	return (
-		<Stack
-			spacing={0}
-			pos="relative"
-			bg="background.main"
-			w="100vw"
-			h="100vh"
-			overflowX="hidden"
-		>
-			<Header />
+		<Box>
+			<Stack
+				spacing={0}
+				pos="relative"
+				bg="background.main"
+				w="100vw"
+				h="100vh"
+				overflowX="hidden"
+			>
+				<Header />
+				<Flex flexGrow={1}>{children}</Flex>
+			</Stack>
 			<MotionImage
 				position="absolute"
 				top="20%"
@@ -77,7 +72,6 @@ export default function Layout({ children }: { children: React.ReactNode }) {
 					duration: 15,
 				}}
 			/>
-			<Flex flexGrow={1}>{children}</Flex>
-		</Stack>
+		</Box>
 	);
 }

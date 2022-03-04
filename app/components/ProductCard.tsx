@@ -22,7 +22,7 @@ export interface ProductCardProps {
 export default function ProductCard({
 	product,
 }: ProductCardProps): JSX.Element {
-	const { name, url, image_url, tagline, topic, upvotes }: any = product;
+	const { name, url, image_url, tagline, topics, upvotes }: Product = product;
 
 	return (
 		<Stack
@@ -67,22 +67,14 @@ export default function ProductCard({
 					borderRadius={4}
 				>
 					<Text color="white" isTruncated fontSize="sm">
-						{topic.charAt(0).toUpperCase() + topic.slice(1)}
+						{topics[0].node.name.charAt(0).toUpperCase() +
+							topics[0].node.name.slice(1)}
 					</Text>
 				</Center>
 			</HStack>
 			<Box w="full" p="2">
 				<Text color="black">{tagline}</Text>
-				<HStack justify="center">
-					<Button
-						w="auto"
-						h="36px"
-						bgColor="black"
-						borderRadius="5"
-						rightIcon={<VercelLogoIcon />}
-					>
-						<Text color="white">Upvote</Text>
-					</Button>
+				<HStack justify="center" spacing={3}>
 					<Button
 						w="auto"
 						h="36px"
