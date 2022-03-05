@@ -1,4 +1,5 @@
 import { Product } from '~/types';
+import { convertNum } from '~/utils';
 import { GoTriangleUp } from 'react-icons/go';
 import { ArrowTopRightIcon, Share2Icon } from '@radix-ui/react-icons';
 import {
@@ -37,7 +38,6 @@ export default function ProductCard({
 				alignSelf="start"
 				alignItems="center"
 			>
-				{/* <VercelLogoIcon style={{ color: 'green', fill: 'green' }} /> */}
 				<GoTriangleUp
 					style={{
 						color: 'green',
@@ -46,7 +46,7 @@ export default function ProductCard({
 						height: '25px',
 					}}
 				/>
-				<Text fontWeight="semibold">{upvotes}</Text>
+				<Text fontWeight="semibold">{convertNum(upvotes)}</Text>
 			</Stack>
 			<HStack w="full" justify="center">
 				<Stack alignSelf="start" alignItems="center">
@@ -64,7 +64,7 @@ export default function ProductCard({
 					top="5"
 					right="5"
 					bg="#F4A261"
-					w="54px"
+					w="80px"
 					h="18px"
 					pos="absolute"
 					alignSelf="start"

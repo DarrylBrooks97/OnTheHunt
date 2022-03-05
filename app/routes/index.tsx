@@ -51,7 +51,7 @@ export default function Index(): JSX.Element {
 							</Stack>
 						</Box>
 						<Text fontSize="20px" color="#636363">
-							View the latest best afffsdfs
+							View the latest best products
 						</Text>
 					</Center>
 				</Center>
@@ -64,7 +64,10 @@ export default function Index(): JSX.Element {
 						borderRadius="15px"
 						justify="center"
 					>
-						<Link to="/products">
+						<Link
+							to="/products"
+							style={{ textDecoration: 'none', color: 'inherit' }}
+						>
 							<Text fontSize="22px" fontFamily="Roboto">
 								View
 							</Text>
