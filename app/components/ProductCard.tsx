@@ -79,19 +79,19 @@ export default function ProductCard({
 			<Text color="black">{tagline}</Text>
 			<Box w="full" p="2">
 				<HStack justify="center">
-					<HStack
-						w="auto"
-						h="36px"
-						bgColor="black"
-						borderRadius="5"
-						p="3"
-						shouldWrapChildren
-					>
-						<Link href={url} target="_blank">
+					<Link href={url} target="_blank">
+						<HStack
+							w="auto"
+							h="36px"
+							bgColor="black"
+							borderRadius="5"
+							p="3"
+							shouldWrapChildren
+						>
 							<Text color="white">Check out</Text>
-						</Link>
-						<ArrowTopRightIcon color="white" />
-					</HStack>
+							<ArrowTopRightIcon color="white" />
+						</HStack>
+					</Link>
 					<Share2Icon
 						width={20}
 						height={20}

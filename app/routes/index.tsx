@@ -56,24 +56,24 @@ export default function Index(): JSX.Element {
 					</Center>
 				</Center>
 				<Center>
-					<HStack
-						bgColor="black"
-						color="white"
-						width="153px"
-						height="60px"
-						borderRadius="15px"
-						justify="center"
+					<Link
+						to="/products"
+						style={{ textDecoration: 'none', color: 'inherit' }}
 					>
-						<Link
-							to="/products"
-							style={{ textDecoration: 'none', color: 'inherit' }}
+						<HStack
+							bgColor="black"
+							color="white"
+							width="153px"
+							height="60px"
+							borderRadius="15px"
+							justify="center"
 						>
 							<Text fontSize="22px" fontFamily="Roboto">
 								View
 							</Text>
-						</Link>
-						<ArrowRightIcon />
-					</HStack>
+							<ArrowRightIcon />
+						</HStack>
+					</Link>
 				</Center>
 			</Stack>
 		</>
