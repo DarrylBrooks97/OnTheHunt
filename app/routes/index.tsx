@@ -1,7 +1,7 @@
 import { Link } from 'remix';
 import type { MetaFunction } from '@remix-run/react/routeModules';
+import { Box, HStack, Center, Stack, Text } from '@chakra-ui/react';
 import { ArrowRightIcon } from '@radix-ui/react-icons';
-import { Box, Button, Center, Stack, Text } from '@chakra-ui/react';
 
 export const meta: MetaFunction = () => {
 	return {
@@ -56,20 +56,21 @@ export default function Index(): JSX.Element {
 					</Center>
 				</Center>
 				<Center>
-					<Button
+					<HStack
 						bgColor="black"
 						color="white"
 						width="153px"
 						height="60px"
 						borderRadius="15px"
-						rightIcon={<ArrowRightIcon />}
+						justify="center"
 					>
 						<Link to="/products">
 							<Text fontSize="22px" fontFamily="Roboto">
 								View
 							</Text>
 						</Link>
-					</Button>
+						<ArrowRightIcon />
+					</HStack>
 				</Center>
 			</Stack>
 		</>
