@@ -6,7 +6,19 @@ import { ArrowRightIcon } from '@radix-ui/react-icons';
 export const meta: MetaFunction = () => {
 	return {
 		title: 'On The Hunt',
-		description: "Product Hunt's daily newspaper",
+		description: 'View the latest products from Product Hunt',
+		'twitter:card': 'summary_large_image',
+		'twitter:site': '@darryl_codes',
+		'twitter:creator': '@darryl_codes',
+		'twitter:title': 'On The Hunt',
+		'twitter:description': 'View the latest products from Product Hunt',
+		'twitter:image': '/SEO.png',
+		'og:title': 'On The Hunt',
+		'og:description': 'View the latest products from Product Hunt',
+		'og:image': '/SEO.png',
+		'og:url': 'https://oth-prod.vercel.app/',
+		'og:site_name': 'On The Hunt',
+		'og:type': 'website',
 	};
 };
 
