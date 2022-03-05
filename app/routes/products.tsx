@@ -2,8 +2,8 @@ import ProductCard from '~/components/ProductCard';
 import { supabase } from '../server/supabase.server';
 import type { Product } from '../types';
 import { motion } from 'framer-motion';
-import { Box, BoxProps, Stack } from '@chakra-ui/react';
-import { LoaderFunction, useLoaderData } from 'remix';
+import { Box, BoxProps, Stack, useDisclosure } from '@chakra-ui/react';
+import { LoaderFunction, Outlet, useLoaderData, useNavigate } from 'remix';
 
 const MotionBox = motion<BoxProps>(Box);
 
@@ -70,6 +70,7 @@ export default function Products(): JSX.Element {
 					</MotionBox>
 				))}
 			</Stack>
+			<Outlet />
 		</Box>
 	);
 }

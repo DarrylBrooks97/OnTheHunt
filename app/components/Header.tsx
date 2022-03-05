@@ -1,4 +1,4 @@
-import { Link } from '@remix-run/react';
+import { Link } from 'remix';
 import { Box, HStack, Heading, Image } from '@chakra-ui/react';
 
 export default function Header() {
@@ -21,7 +21,9 @@ export default function Header() {
 				</Heading>
 			</Link>
 			<Box>
-				<Image src="/menu.svg" alt="Menu" w="full" h="full" />
+				<Link to="/products/menu">
+					<Image src="/menu.svg" alt="Menu" w="full" h="full" />
+				</Link>
 			</Box>
 		</HStack>
 	);
