@@ -1,11 +1,7 @@
 import { Product } from '~/types';
+import { GoTriangleUp } from 'react-icons/go';
+import { ArrowTopRightIcon, Share2Icon } from '@radix-ui/react-icons';
 import {
-	ArrowTopRightIcon,
-	Share2Icon,
-	VercelLogoIcon,
-} from '@radix-ui/react-icons';
-import {
-	Button,
 	HStack,
 	Image,
 	Stack,
@@ -22,7 +18,7 @@ export interface ProductCardProps {
 export default function ProductCard({
 	product,
 }: ProductCardProps): JSX.Element {
-	const { name, url, image_url, tagline, topics, upvotes }: Product = product;
+	const { name, url, image_url, tagline, topic, upvotes }: Product = product;
 
 	return (
 		<Stack
@@ -41,7 +37,15 @@ export default function ProductCard({
 				alignSelf="start"
 				alignItems="center"
 			>
-				<VercelLogoIcon />
+				{/* <VercelLogoIcon style={{ color: 'green', fill: 'green' }} /> */}
+				<GoTriangleUp
+					style={{
+						color: 'green',
+						fill: 'green',
+						width: '25px',
+						height: '25px',
+					}}
+				/>
 				<Text fontWeight="semibold">{upvotes}</Text>
 			</Stack>
 			<HStack w="full" justify="center">
@@ -67,25 +71,27 @@ export default function ProductCard({
 					borderRadius={4}
 				>
 					<Text color="white" isTruncated fontSize="sm">
-						{topics[0].node.name.charAt(0).toUpperCase() +
-							topics[0].node.name.slice(1)}
+						{topic['node']['name'].charAt(0).toUpperCase() +
+							topic['node']['name'].slice(1)}
 					</Text>
 				</Center>
 			</HStack>
+			<Text color="black">{tagline}</Text>
 			<Box w="full" p="2">
-				<Text color="black">{tagline}</Text>
-				<HStack justify="center" spacing={3}>
-					<Button
+				<HStack justify="center">
+					<HStack
 						w="auto"
 						h="36px"
 						bgColor="black"
 						borderRadius="5"
-						rightIcon={<ArrowTopRightIcon />}
+						p="3"
+						shouldWrapChildren
 					>
-						<Link as="a" href={url} target="_blank">
+						<Link href={url} target="_blank">
 							<Text color="white">Check out</Text>
 						</Link>
-					</Button>
+						<ArrowTopRightIcon color="white" />
+					</HStack>
 					<Share2Icon
 						width={20}
 						height={20}

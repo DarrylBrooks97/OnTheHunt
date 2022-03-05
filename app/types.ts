@@ -3,7 +3,7 @@ export interface Product {
 	name: string;
 	url: string;
 	image_url: string;
-	topics: { node: { name: string } }[];
+	topic: { node: { name: string } };
 	tagline: string;
 	upvotes: number;
 }

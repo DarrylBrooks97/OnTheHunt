@@ -1,5 +1,6 @@
-import '@fontsource/oswald/index.css';
-import '@fontsource/alegreya-sc/index.css';
+import '@fontsource/oswald/400.css';
+import '@fontsource/alegreya-sans-sc/700.css';
+// import '@fontsource/alegreya-sans-sc/700.css';
 import Layout from '~/components/Layout';
 import ServerStyleContext from '~/context.server';
 import ClientStyleContext from '~/context.client';
