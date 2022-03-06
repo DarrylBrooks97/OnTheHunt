@@ -69,7 +69,7 @@ interface DocumentProps {
 	title?: string;
 }
 
-const Document = withEmotionCache(
+export const Document = withEmotionCache(
 	({ children, title }: DocumentProps, emotionCache) => {
 		const serverSyleData = useContext(ServerStyleContext);
 		const clientStyleData = useContext(ClientStyleContext);
