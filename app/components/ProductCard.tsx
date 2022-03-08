@@ -1,6 +1,7 @@
 import { Product } from '~/types';
 import { convertNum } from '~/utils';
 import { GoTriangleUp } from 'react-icons/go';
+import { BsLink45Deg } from 'react-icons/bs';
 import { ArrowTopRightIcon, Share2Icon } from '@radix-ui/react-icons';
 import {
 	HStack,
@@ -10,6 +11,8 @@ import {
 	Link,
 	Center,
 	Box,
+	useToast,
+	useMediaQuery,
 } from '@chakra-ui/react';
 
 export interface ProductCardProps {
@@ -19,6 +22,8 @@ export interface ProductCardProps {
 export default function ProductCard({
 	product,
 }: ProductCardProps): JSX.Element {
+	const toast = useToast();
+	const [isDesktop] = useMediaQuery('(min-width: 768px)');
 	const { name, url, image_url, tagline, topic, upvotes }: Product = product;
 
 	return (
@@ -92,13 +97,31 @@ export default function ProductCard({
 							<ArrowTopRightIcon color="white" />
 						</HStack>
 					</Link>
-					<Share2Icon
-						width={20}
-						height={20}
-						onClick={() =>
-							navigator.share({ url: url, title: name })
-						}
-					/>
+					{isDesktop ? (
+						<BsLink45Deg
+							width={50}
+							height={50}
+							cursor="copy"
+							onClick={() => {
+								navigator.clipboard.writeText(url);
+								toast({
+									title: 'Copied to clipboard',
+									description: 'Ready to Share !',
+									status: 'success',
+									duration: 2000,
+									isClosable: true,
+								});
+							}}
+						/>
+					) : (
+						<Share2Icon
+							width={20}
+							height={20}
+							onClick={() =>
+								navigator.share({ url: url, title: name })
+							}
+						/>
+					)}
 				</HStack>
 			</Box>
 		</Stack>

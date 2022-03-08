@@ -7,13 +7,13 @@ import { LoaderFunction, Outlet, useLoaderData, useNavigate } from 'remix';
 
 const MotionBox = motion<BoxProps>(Box);
 
-export const loader: LoaderFunction = async (): Promise<Product[]> => {
+export const loader: LoaderFunction = async () => {
 	const { data: products, error } = await supabase
 		.from('products')
 		.select('*');
 
 	if (error || !products) {
-		throw new Response("Couldn't fetch products", { status: 500 });
+		throw new Error('Failed to load products');
 	}
 
 	return products.map((product: any) => {
@@ -28,12 +28,13 @@ export const loader: LoaderFunction = async (): Promise<Product[]> => {
 				return a.node.name.length <= b.node.name.length ? a : b;
 			}
 		);
+
 		return product;
 	});
 };
 
 export default function Products(): JSX.Element {
-	const products: Product[] = useLoaderData();
+	const products = useLoaderData<Product[]>();
 
 	return (
 		<Box pos="relative" w="full" h="full">
